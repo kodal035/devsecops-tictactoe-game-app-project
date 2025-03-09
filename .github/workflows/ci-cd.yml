@@ -101,6 +101,7 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.TOKEN }}
+          
       
       - name: Extract metadata for Docker
         id: meta
@@ -112,7 +113,7 @@ jobs:
             type=ref,event=branch
             latest
       
-            
+
       - name: Build Docker image
         uses: docker/build-push-action@v5
         with:

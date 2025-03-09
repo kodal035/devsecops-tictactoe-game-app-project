@@ -6,6 +6,9 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
+# libxml2 paketini güncelle
+RUN apk update && apk upgrade libxml2
+
 # Production stage
 FROM nginx:alpine
 COPY --from=build /app/dist /usr/share/nginx/html
